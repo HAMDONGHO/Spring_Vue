@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<!-- xmlns:th는 타일리프의 th속성을 사용하기 위한 네임스페이스 -->
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- JSP의 <include>유사한 속성, templates/board폴더의 프레그먼트를 찾아 해당코드로 치환 -->
+	<head th:replace="board/fragments/header :: main-head"> </head>
+	<body th:replace="board/fragments/body :: main-body"> </body>
+</html>
