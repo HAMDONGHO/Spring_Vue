@@ -48,6 +48,19 @@ public class BoardServicelmpl implements BoardService {
 	}
 	
 	@Override
+	public boolean updateView(Long idx) {
+		int queryResult = 0;
+		
+		BoardDTO board = boardMapper.selectBoardDetail(idx);
+		
+		if (board != null && "N".equals(board.getDeleteYn())) {
+			queryResult = boardMapper.updateView(idx);
+		}
+		// TODO Auto-generated method stub
+		return (queryResult == 1) ? true : false;
+	}
+	
+	@Override
 	public List<BoardDTO> getBoardList(){
 		List<BoardDTO> boardList = Collections.emptyList();
 		
