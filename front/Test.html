@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue_Practice</title>
+</head>
+<body>
+    <h1>hi! Vue</h1>
+    <div id="first">{{first}}</div>
+    <div id="first-2">
+        <span v-bind:title="message">
+            Hold mouse
+    </div>
+    <div id="first-3">
+        <p v-if ="seen">You Can See</p>
+    </div>
+    <div id="first-4">
+        <li v-for ="wheel in todos">{{ wheel.text }}</li>
+    </div>
+    <div id = "first-5">
+        <p>{{message}}</p>
+        <button v-on:click="reverse">메시지 뒤집기!</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var one = new Vue({
+            el: '#first',
+            data: {
+                first: "OK, Go"
+            }
+        })
+        // v-bind로 렌더링 된 DOM에 특수한 반응형 동작을 함. title속성을 vue 인스턴스 message속성
+        var two = new Vue({
+            el: '#first-2',
+            data:{
+                message: '이 페이지는 ' + new Date()+ ' 에 로드 되었습니다.'
+            }
+        })
+
+        //if문도 가능 for문도 가능!
+        var three = new Vue({
+            el: "#first-4",
+            data:{
+                todos:[{text: 'Vue 배우기'},{text: 'Spring Boot 배우기'}]
+            }
+        })
+
+        var five = new Vue({
+            el: "#first-5",
+            data:{
+                message: 'Vue!!'
+            },
+            methods: {
+                reverse:function(){
+                    this.message = this.message.split('').reverse().join('')
+                }
+            },
+        })
+        
+    </script>
+</body>
+</html>
